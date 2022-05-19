@@ -5,13 +5,14 @@ export interface HomeProps {
       dist: number;
       modhash: string;
       geo_filter: any;
-      children: {
-        kind: string;
-        data: Data;
-      }[];
+      children: ChildrenProps[];
       before: any;
     };
   };
+}
+export interface ChildrenProps {
+  kind: string;
+  data: Data;
 }
 export interface Data {
   approved_at_utc: any;

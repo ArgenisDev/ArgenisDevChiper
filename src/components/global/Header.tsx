@@ -17,5 +17,6 @@ const Container = styled.Text`
   margin-top: ${normalize(16)}px;
   font-size: ${normalize(18)}px;
   font-weight: 500;
+  padding-bottom: ${normalize(16)}px;
 `;
 export default Header;
