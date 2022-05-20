@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import {Home} from '../screens';
 import {COLORS} from '../constants';
+import DescriptionLinkScreen from '../screens/descriptionLink/DescriptionLinkScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,10 @@ const MainNavigation = () => {
           }}
           initialRouteName={'Home'}>
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen
+            name="DescriptionLink"
+            component={DescriptionLinkScreen}
+          />
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>

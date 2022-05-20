@@ -15,8 +15,9 @@ import filterByCategories from '../../helpers/filtersByCategorie';
 interface HomeScreenProps {
   home: HomeProps;
   getRPics: () => void;
+  navigation: any;
 }
-const HomeScreen = ({home, getRPics}: HomeScreenProps) => {
+const HomeScreen = ({home, getRPics, navigation}: HomeScreenProps) => {
   const [refreshing, setRefreshing] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(0);
   const [routes] = useState([
@@ -42,9 +43,13 @@ const HomeScreen = ({home, getRPics}: HomeScreenProps) => {
       setRefreshing(false);
     }, 1000);
   };
+  const navigateToDescription = (link: string, title: string) => {
+    console.log(link);
+    navigation.navigate('DescriptionLink', {link: link, title: title});
+  };
   return (
     <Container color={COLORS.background}>
-      <Header title={'Reddit/r/programming'} />
+      <Header title={'Reddit/r/programming'} isBack={false} />
       {refreshing && (
         <ActivityIndicator
           color={COLORS.primary}
@@ -55,7 +60,9 @@ const HomeScreen = ({home, getRPics}: HomeScreenProps) => {
       {home.rpics.data.children?.length && (
         <WrapperList
           data={filterByCategories(index, home.rpics.data.children)}
-          renderItem={RenderItem}
+          renderItem={({item}) => (
+            <RenderItem action={navigateToDescription} item={item} />
+          )}
           refreshing={refreshing}
           ListHeaderComponent={() => (
             <TabView

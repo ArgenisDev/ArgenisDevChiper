@@ -8,10 +8,11 @@ import {ChildrenProps} from '../../screens/types';
 
 interface RenderItemProps {
   item: ChildrenProps;
+  action: (link: string, title: string) => void;
 }
-const RenderItem = ({item}: RenderItemProps) => {
+const RenderItem = ({item, action}: RenderItemProps) => {
   return (
-    <Container>
+    <Container onPress={() => action(item.data.permalink, item.data.title)}>
       <ImageLogo source={{uri: item.data.thumbnail}} resizeMode="cover" />
       <ContainerTitle>
         <Title color={COLORS.white}>{getNumberOfLeters(item.data.title)}</Title>
