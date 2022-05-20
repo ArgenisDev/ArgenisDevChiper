@@ -4,6 +4,7 @@ import Container from '../../components/global/Container';
 import Header from '../../components/global/Header';
 import {COLORS} from '../../constants';
 import getNumberOfLeters from '../../helpers/numberLetters';
+import {NavigationProps} from '../types';
 
 interface DescriptionLinkScreenProps {
   route: {
@@ -12,7 +13,7 @@ interface DescriptionLinkScreenProps {
       title: string;
     };
   };
-  navigation: any;
+  navigation: NavigationProps;
 }
 
 const DescriptionLinkScreen = ({

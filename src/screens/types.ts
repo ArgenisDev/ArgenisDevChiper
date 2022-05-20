@@ -1,3 +1,5 @@
+import {StackNavigationProp} from '@react-navigation/stack';
+
 export interface HomeProps {
   rpics: {
     data: {
@@ -207,6 +209,14 @@ export interface N0 {
   resized_static_icons: ResizedStaticIcon[];
   icon: Icon;
 }
+type RootStackParamList = {
+  Home: undefined;
+  DescriptionLink: undefined;
+};
+export type NavigationProps = StackNavigationProp<
+  RootStackParamList,
+  'Profile'
+>;
 
 export interface ResizedIcon {
   url: string;

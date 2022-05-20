@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {asyncGetRPics} from '../../redux/thunks';
 import {connect} from 'react-redux';
-import {HomeProps} from '../types';
+import {HomeProps, NavigationProps} from '../types';
 import Header from '../../components/global/Header';
 import Container from '../../components/global/Container';
 import {COLORS} from '../../constants';
@@ -15,7 +15,7 @@ import filterByCategories from '../../helpers/filtersByCategorie';
 interface HomeScreenProps {
   home: HomeProps;
   getRPics: () => void;
-  navigation: any;
+  navigation: NavigationProps;
 }
 const HomeScreen = ({home, getRPics, navigation}: HomeScreenProps) => {
   const [refreshing, setRefreshing] = useState<boolean>(false);

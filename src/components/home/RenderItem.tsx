@@ -5,6 +5,7 @@ import getNumberOfLeters from '../../helpers/numberLetters';
 import {normalize, SCREEN_WIDTH} from '../../hooks/useResponsive';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {ChildrenProps} from '../../screens/types';
+import moment from 'moment';
 
 interface RenderItemProps {
   item: ChildrenProps;
@@ -18,6 +19,10 @@ const RenderItem = ({item, action}: RenderItemProps) => {
         <Title color={COLORS.white}>{getNumberOfLeters(item.data.title)}</Title>
         <TextAuthor color={COLORS.white}>
           <Fontisto name={'person'} color={COLORS.primary} /> {item.data.author}
+        </TextAuthor>
+        <TextAuthor color={COLORS.white}>
+          <Fontisto name={'calendar'} color={COLORS.primary} />{' '}
+          {moment(item.data.created).fromNow()}
         </TextAuthor>
         <ContainerInteractions>
           <TextComment color={COLORS.white}>
@@ -34,7 +39,8 @@ const RenderItem = ({item, action}: RenderItemProps) => {
 };
 const Container = styled.TouchableOpacity`
   width: ${SCREEN_WIDTH * 0.9}px;
-  height: ${normalize(150)}px;
+  padding-top: ${normalize(16)}px;
+  padding-bottom: ${normalize(16)}px;
   background-color: ${COLORS.hardBlueSecondary};
   margin-top: ${normalize(16)}px;
   margin-bottom: ${normalize(16)}px;
